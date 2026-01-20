@@ -14,13 +14,10 @@
                         <h3>Gestor de Tareas</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('tasks.store') }}" method="POST" class="mb-4">
-                            @csrf
-                            <div class="input-group">
-                                <input type="text" name="title" class="form-control" placeholder="¿Qué hay que hacer?" required>
-                                <button type="submit" class="btn btn-success">Añadir</button>
-                            </div>
-                        </form>
+                    <form action="{{ route('tasks.store') }}" method="POST">
+    @csrf  <input type="text" name="title" ...>
+    <button type="submit">Añadir</button>
+</form>
 
                         <hr>
 

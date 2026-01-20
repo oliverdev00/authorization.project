@@ -1,3 +1,5 @@
+<?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Task;
@@ -15,13 +17,17 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['title' => 'required|max:255']);
+        // Validación básica
+        $request->validate([
+            'title' => 'required|max:255',
+        ]);
 
+        // Crear la tarea asociada al usuario
         Auth::user()->tasks()->create([
             'title' => $request->title,
             'description' => $request->description,
         ]);
 
-        return back()->with('success', '¡Tarea creada!');
+        return back()->with('success', '¡Tarea creada con éxito!');
     }
 }
